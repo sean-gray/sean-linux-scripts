@@ -7,8 +7,10 @@ echo "Setting Gtk Theme"
 echo "#########################"
 cd Themes
 cd Marwaita-master
-cp -R * /usr/share/themes/
+sudo cp -R * /usr/share/themes/
 xfconf-query -c xsettings -p /Net/ThemeName -s "Marwaita Dark"
+xfconf-query -c xfwm4 -p /general/theme -s "Marwaita Dark"
+
 cd ..
 echo "#########################"
 
@@ -18,10 +20,10 @@ echo "#########################"
 echo "Setting Icon Theme"
 echo "#########################"
 cd vimix-icon-theme-master
-sh install.sh
+sudo bash install.sh
 xfconf-query -c xsettings -p /Net/IconThemeName -s "Vimix dark"
 cd ..
-sudo update-icon-caches /usr/share/icons/*
+update-icon-caches /usr/share/icons/*
 
 echo "#########################"
 
@@ -31,11 +33,13 @@ echo "#########################"
 echo "Setting Fonts"
 echo "#########################"
 cd Roboto
-cp *.ttf /usr/share/fonts/truetype/
+sudo cp *.ttf /usr/share/fonts/truetype/
 
 fc-cache -fv
 xfconf-query -c xsettings -p /Gtk/FontName -s "Roboto 11"
 xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s "Roboto Mono 11"
+xfconf-query -c xfwm4 -p /general/title_font -s "Roboto 11"
+
 cd ..
 echo "#########################"
 
