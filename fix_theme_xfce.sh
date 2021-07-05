@@ -5,7 +5,7 @@
 echo "#########################"
 echo "Setting Gtk Theme"
 echo "#########################"
-cd Themes
+git clone https://github.com/darkomarko42/Marwaita.git
 cd Marwaita-master
 sudo cp -R * /usr/share/themes/
 xfconf-query -c xsettings -p /Net/ThemeName -s "Marwaita Dark"
@@ -19,9 +19,10 @@ echo "#########################"
 echo "#########################"
 echo "Setting Icon Theme"
 echo "#########################"
+git clone https://github.com/vinceliuice/vimix-icon-theme.git
 cd vimix-icon-theme-master
 sudo bash install.sh
-xfconf-query -c xsettings -p /Net/IconThemeName -s "Vimix dark"
+xfconf-query -c xsettings -p /Net/IconThemeName -s "Vimix-dark"
 cd ..
 update-icon-caches /usr/share/icons/*
 
